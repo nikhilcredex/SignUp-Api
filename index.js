@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 const app = express();
+require('./app/routes/routes.js');
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -21,13 +23,8 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Signup Api"});
-});
-
-require('./app/routes/routes.js')(app);
 
 // listen for requests
-app.listen(7000, () => {
-    console.log("Server is listening on port 7000");
+app.listen(5000, () => {
+    console.log("Server is listening on port 5000");
 });
