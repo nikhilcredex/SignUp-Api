@@ -26,7 +26,7 @@ const SignUpSchema = mongoose.Schema({
         type: Number, 
         required: true,
         validate(value){
-            if(value=="" || value==" "){
+            if(value==null || value==" "|| value <= 0 || value >= 100 ){
                 throw new Error("Empty age is not allowed.");
             }
         }
@@ -64,6 +64,11 @@ const SignUpSchema = mongoose.Schema({
             }
         }
     },
+    subjects : {
+        type:Array,
+        required:true
+    },
+
     wantScholar: { 
         type: Boolean, 
         required: true,
@@ -73,7 +78,7 @@ const SignUpSchema = mongoose.Schema({
             }
         } 
     },
-    description:{ type: String},
+    description:{ type: String },
     createdDate: { type: Date, default: Date.now }
 });
 
