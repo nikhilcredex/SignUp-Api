@@ -1,5 +1,6 @@
 const express=require('express');
 const router = new express.Router();
+const _=require('lodash');
 
 const user=require('../model/model.js');
 
@@ -16,9 +17,7 @@ router.post("/create",async (req,res)=>{
             res.status(400).send({
                 message: "Description is not required."
             });
-        } else {
-            console.log("Desciption is Required. Please Enter it!");
-        }
+        } 
         const insertUser=await addingUser.save();
         res.status(201).send(insertUser);
     }
