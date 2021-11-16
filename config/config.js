@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://localhost:27017/SignUp'
+    url: 'mongodb+srv://nikhilmadaan:Des!factor69@cluster0.pqfjn.mongodb.net/signUp'
 }
