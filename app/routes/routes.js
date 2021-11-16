@@ -11,13 +11,15 @@ router.post("/create",async (req,res)=>{
         const firstId=_.get(_.first(getPreviouse_Id),'signId',999);
         const newId=firstId+1;
         Object.assign(req.body,{signId:newId});
-        const addingStudent=new student(req.body);
+        const addingUser =new user(req.body);
+    
         
         if(req.body.wantScholar!='yes' && req.body.description!=""){
             res.status(400).send({
                 message: "Description is not required."
             });
         } 
+        console.log(addingUser);
         const insertUser=await addingUser.save();
         res.status(201).send(insertUser);
     }
